@@ -4,7 +4,7 @@ SEOTitle: ZAK Blog
 header-img: fig/bg-home.png
 email: zhang.kang.0220@hotmail.com
 description: "记录学习，记录生活。"
-#keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
+#keyword: "ZAK, Deep Learning, "
 url: "https://pantheon5100.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
