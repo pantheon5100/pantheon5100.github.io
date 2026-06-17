@@ -38,7 +38,7 @@
                 </p>
               </td>
               <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="zk_pic/ZhangKang.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="zk_pic/ZhangKang.jpg" class="hoverZoomLink"></a>
+                <a href="zk_pic/ZhangKang.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="zk_pic/ZhangKang.jpg" class="profile-photo hoverZoomLink"></a>
               </td>
             </tr>
           </tbody></table>
@@ -52,7 +52,7 @@
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table class="research-list" style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
             <tr>
               <td style="padding:16px;width:40%;vertical-align:middle">
@@ -568,5 +568,47 @@
         </td>
       </tr>
     </table>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var rows = document.querySelectorAll('.research-list > tbody > tr');
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function showRow(row) {
+          row.classList.add('is-visible');
+          window.setTimeout(function () {
+            row.classList.remove('reveal-item');
+            row.style.removeProperty('--reveal-delay');
+          }, reduceMotion ? 0 : 900);
+        }
+
+        rows.forEach(function (row, index) {
+          row.classList.add('reveal-item');
+          row.style.setProperty('--reveal-delay', Math.min(index * 45, 180) + 'ms');
+        });
+
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+          rows.forEach(function (row) {
+            showRow(row);
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              showRow(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.15
+        });
+
+        rows.forEach(function (row) {
+          observer.observe(row);
+        });
+      });
+    </script>
   </body>
 </html>

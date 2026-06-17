@@ -66,6 +66,7 @@
 a {
   color: #1772d0;
   text-decoration: none;
+  transition: color 180ms ease;
 }
 
 a:focus,
@@ -139,4 +140,71 @@ span.highlight {
     padding: 20px;
     display: inline-block;
     border-radius: 10px;
+}
+
+.profile-photo {
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.profile-photo:hover {
+  box-shadow: 0 14px 32px rgba(23, 114, 208, 0.16);
+  transform: translateY(-3px) scale(1.015);
+}
+
+.research-list td {
+  transition: background-color 240ms ease;
+}
+
+.research-list tr:hover td {
+  background-color: rgba(23, 114, 208, 0.045);
+}
+
+.research-list tr:hover td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.research-list tr:hover td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.research-list img {
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+.research-list tr:hover img {
+  filter: saturate(1.04);
+  transform: scale(1.025);
+}
+
+.research-list tr.reveal-item td {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 560ms ease, transform 560ms ease, background-color 240ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.research-list tr.reveal-item td:nth-child(2) {
+  transition-delay: calc(var(--reveal-delay, 0ms) + 70ms);
+}
+
+.research-list tr.reveal-item.is-visible td {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a,
+  .profile-photo,
+  .research-list td,
+  .research-list img,
+  .research-list tr.reveal-item td {
+    transition: none;
+  }
+
+  .profile-photo:hover,
+  .research-list tr:hover img,
+  .research-list tr.reveal-item td {
+    opacity: 1;
+    transform: none;
+  }
 }
