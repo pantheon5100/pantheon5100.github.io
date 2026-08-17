@@ -7,13 +7,16 @@
     <meta name="description" content="A data-free view of flow-map distillation and a step-by-step derivation of FreeFlow&#39;s velocity-alignment update.">
     <title>Understanding FreeFlow: From the Big Picture to the Mathematics of Equation 9 · Kang Zhang</title>
     <link rel="shortcut icon" href="../images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../stylesheet.css?v=20260817">
     <link rel="stylesheet" href="article.css?v=3">
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['\\(', '\\)']],
-          displayMath: [['\\[', '\\]']]
+          displayMath: [['\\[', '\\]']],
+          macros: {
+            coloneqq: '\\mathrel{:=}'
+          }
         },
         chtml: {
           fontURL: 'vendor/mathjax/output/chtml/fonts/woff-v2'
@@ -637,7 +640,7 @@ v_G\!\left(f_\theta(z,\delta),1-\delta\right)
 \boxed{
 v_G
 =
-F_\theta+delta\partial_\delta F_\theta
+F_\theta+\delta\partial_\delta F_\theta
 }.
 \tag{13}
 \]</p>

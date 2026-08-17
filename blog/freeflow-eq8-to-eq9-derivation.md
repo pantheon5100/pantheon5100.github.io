@@ -807,7 +807,7 @@ $$
 \boxed{
 v_G
 =
-F_\theta+delta\partial_\delta F_\theta
+F_\theta+\delta\partial_\delta F_\theta
 }.
 \tag{13}
 $$
