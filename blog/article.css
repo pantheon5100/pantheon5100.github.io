@@ -224,3 +224,10 @@
     scroll-behavior: auto;
   }
 }
+
+.article-figure { margin: 32px 0; }
+.article-figure img { display: block; width: 100%; height: auto; }
+.article-figure figcaption { color: #536174; font-size: 14px; line-height: 1.6; margin-top: 12px; }
+.article-content table { border-collapse: collapse; display: block; max-width: 100%; overflow-x: auto; margin: 24px 0; font-size: 14px; }
+.article-content th, .article-content td { border: 1px solid #dfe6ef; padding: 10px 12px; text-align: left; }
+.article-content th { background: #f1f6fb; }
